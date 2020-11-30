@@ -24,7 +24,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="C:\Go" />
+  <component name="GOROOT" path="$PROJECT_DIR$/../../../GoWork" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
@@ -42,7 +42,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -50,13 +52,22 @@
       <recent name="D:\GoPath\src\GoPractice\FunctionalProgram\entry" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build GoPractice/FunctionalProgram/Fib">
+  <component name="RunManager" selected="Go Build.go build GoPractice/CatchError/filelistingserver">
     <configuration name="go build GoPractice/CatchError/defer" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="GoPractice" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
       <filePath value="$PROJECT_DIR$/CatchError/defer/defer.go" />
       <package value="GoPractice/CatchError/defer" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build GoPractice/CatchError/filelistingserver" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="GoPractice" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/CatchError/filelistingserver/web.go" />
+      <package value="GoPractice/CatchError/filelistingserver" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
@@ -89,6 +100,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build GoPractice/CatchError/filelistingserver" />
         <item itemvalue="Go Build.go build GoPractice/FunctionalProgram/Fib" />
         <item itemvalue="Go Build.go build GoPractice/CatchError/defer" />
         <item itemvalue="Go Build.go build GoPractice/FunctionalProgram/tree/entry" />
@@ -120,6 +132,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -130,21 +143,29 @@
     </environment>
   </component>
   <component name="WindowStateProjectService">
-    <state width="916" height="190" key="GridCell.Tab.0.bottom" timestamp="1606740390778">
+    <state width="914" height="281" key="GridCell.Tab.0.bottom" timestamp="1606749390844">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="916" height="190" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606740390778" />
-    <state width="916" height="190" key="GridCell.Tab.0.center" timestamp="1606740390778">
+    <state width="914" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606749390844" />
+    <state width="914" height="281" key="GridCell.Tab.0.center" timestamp="1606749390843">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="916" height="190" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606740390778" />
-    <state width="916" height="190" key="GridCell.Tab.0.left" timestamp="1606740390777">
+    <state width="914" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606749390843" />
+    <state width="914" height="281" key="GridCell.Tab.0.left" timestamp="1606749390843">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="916" height="190" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606740390777" />
-    <state width="916" height="190" key="GridCell.Tab.0.right" timestamp="1606740390778">
+    <state width="914" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606749390843" />
+    <state width="914" height="281" key="GridCell.Tab.0.right" timestamp="1606749390844">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="916" height="190" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606740390778" />
+    <state width="914" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606749390844" />
+    <state x="0" y="164" key="SettingsEditor" timestamp="1606746869982">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="0" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1606746869982" />
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1606748678300">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606748678300" />
   </component>
 </project>
