@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="525af5e7-3d4d-4183-9720-6f9fc8cca269" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go Application" />
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="C:\Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="1l0VAl7nFLRae6cAe3pWPENAoRh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GoPath\src\GoPractice\FunctionalProgram\tree" />
+      <recent name="D:\GoPath\src\GoPractice\FunctionalProgram\entry" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Test.TestSubStr in GoPractice/Testing (1)">
+    <configuration name="BenchmarkSubstr in GoPractice/Testing (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="GoPractice" />
+      <working_directory value="$PROJECT_DIR$/Testing" />
+      <framework value="gobench" />
+      <kind value="PACKAGE" />
+      <package value="GoPractice/Testing" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QBenchmarkSubstr\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="BenchmarkSubstr in GoPractice/Testing (2)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="GoPractice" />
+      <working_directory value="$PROJECT_DIR$/Testing" />
+      <framework value="gobench" />
+      <kind value="PACKAGE" />
+      <package value="GoPractice/Testing" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QBenchmarkSubstr\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="BenchmarkSubstr in GoPractice/Testing" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="GoPractice" />
+      <working_directory value="$PROJECT_DIR$/Testing" />
+      <framework value="gobench" />
+      <kind value="PACKAGE" />
+      <package value="GoPractice/Testing" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QBenchmarkSubstr\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestSubStr in GoPractice/Testing (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="GoPractice" />
+      <working_directory value="$PROJECT_DIR$/Testing" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="GoPractice/Testing" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestSubStr\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestSubStr in GoPractice/Testing" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="GoPractice" />
+      <working_directory value="$PROJECT_DIR$/Testing" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="GoPractice/Testing" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestSubStr\E$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.TestSubStr in GoPractice/Testing (1)" />
+        <item itemvalue="Go Test.TestSubStr in GoPractice/Testing" />
+        <item itemvalue="Go Test.BenchmarkSubstr in GoPractice/Testing (2)" />
+        <item itemvalue="Go Test.BenchmarkSubstr in GoPractice/Testing (1)" />
+        <item itemvalue="Go Test.BenchmarkSubstr in GoPractice/Testing" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="525af5e7-3d4d-4183-9720-6f9fc8cca269" name="Default Changelist" comment="" />
+      <created>1606733854910</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606733854910</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+    <environment>
+      <map>
+        <entry key="GOPROXY" value="https://goproxy.cn,direct" />
+      </map>
+    </environment>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="286" y="450" key="#GOROOT" timestamp="1606785207954">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="286" y="450" key="#GOROOT/0.0.1920.1040@0.0.1920.1040" timestamp="1606785207954" />
+    <state x="199" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606826007921">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="199" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1606826007921" />
+    <state x="564" y="478" key="FileChooserDialogImpl" timestamp="1606785205858">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="564" y="478" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606785205858" />
+    <state width="914" height="188" key="GridCell.Tab.0.bottom" timestamp="1606826621114">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="188" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606826621114" />
+    <state width="914" height="188" key="GridCell.Tab.0.center" timestamp="1606826621114">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="188" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606826621114" />
+    <state width="914" height="188" key="GridCell.Tab.0.left" timestamp="1606826621114">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="188" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606826621114" />
+    <state width="914" height="188" key="GridCell.Tab.0.right" timestamp="1606826621114">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="188" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606826621114" />
+    <state width="928" height="333" key="GridCell.Tab.1.bottom" timestamp="1606826621108">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="928" height="333" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606826621108" />
+    <state width="928" height="333" key="GridCell.Tab.1.center" timestamp="1606826621108">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="928" height="333" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606826621108" />
+    <state width="928" height="333" key="GridCell.Tab.1.left" timestamp="1606826621108">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="928" height="333" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606826621108" />
+    <state width="928" height="333" key="GridCell.Tab.1.right" timestamp="1606826621108">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="928" height="333" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606826621108" />
+    <state x="0" y="164" key="SettingsEditor" timestamp="1606746869982">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="0" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1606746869982" />
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1606811149228">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606811149228" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/InterfacePrac/Tree/Tree.go</url>
+          <line>20</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/GoPractice$TestSubStr_in_GoPractice_Testing__2_.out" NAME="TestSubStr in GoPractice/Testing (2) Coverage Results" MODIFIED="1606824752311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
