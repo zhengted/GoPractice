@@ -35,5 +35,5 @@ func calcTiangle(a, b int) int {
 }
 
 func main() {
-	
+	triangle()
 }

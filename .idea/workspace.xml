@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="56050d9c-090f-45df-a271-1f27dcf31618" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/FuckingAlgorithm/Container/List/Vector.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testing/entry.go" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/entry.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+        <option value="Go Application" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="C:\Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="1l56cWp43HyUtJ1Jeu5pQRscmHc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go Application" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GoPath\src\GoPractice" />
+      <recent name="D:\GoPath\src\GoPractice\Pattern&amp;Algorithm" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build GoPractice/FuckingAlgorithm/Container/List">
+    <configuration name="go build GoPractice/FuckingAlgorithm/Container/List" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="GoPractice" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/FuckingAlgorithm/Container/List/Vector.go" />
+      <package value="GoPractice/FuckingAlgorithm/Container/List" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build GoPractice/Testing" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="GoPractice" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/Testing/entry.go" />
+      <package value="GoPractice/Testing" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="BenchmarkSubstr in GoPractice/Testing" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="GoPractice" />
+      <working_directory value="$PROJECT_DIR$/Testing" />
+      <framework value="gobench" />
+      <kind value="PACKAGE" />
+      <package value="GoPractice/Testing" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QBenchmarkSubstr\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestSubStr in GoPractice/Testing" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="GoPractice" />
+      <working_directory value="$PROJECT_DIR$/Testing" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="GoPractice/Testing" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestSubStr\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestTriangle in GoPractice/Testing" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="GoPractice" />
+      <working_directory value="$PROJECT_DIR$/Testing" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="GoPractice/Testing" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestTriangle\E$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build GoPractice/FuckingAlgorithm/Container/List" />
+        <item itemvalue="Go Build.go build GoPractice/Testing" />
+        <item itemvalue="Go Test.TestTriangle in GoPractice/Testing" />
+        <item itemvalue="Go Test.BenchmarkSubstr in GoPractice/Testing" />
+        <item itemvalue="Go Test.TestSubStr in GoPractice/Testing" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="56050d9c-090f-45df-a271-1f27dcf31618" name="Default Changelist" comment="" />
+      <created>1606874686294</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606874686294</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="477" y="288" key="FileChooserDialogImpl" timestamp="1606987437898">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="477" y="288" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606987437898" />
+    <state width="914" height="279" key="GridCell.Tab.0.bottom" timestamp="1606995528505">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606995528505" />
+    <state width="914" height="279" key="GridCell.Tab.0.center" timestamp="1606995528505">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606995528505" />
+    <state width="914" height="279" key="GridCell.Tab.0.left" timestamp="1606995528505">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606995528505" />
+    <state width="914" height="279" key="GridCell.Tab.0.right" timestamp="1606995528505">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606995528505" />
+    <state x="198" y="178" key="SettingsEditor" timestamp="1606905935065">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="198" y="178" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1606905935065" />
+  </component>
+</project>
