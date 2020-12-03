@@ -9,7 +9,7 @@ type IVector interface {
 	Back() interface{}
 	Empty() bool
 	Size() int
-	Insert(v interface{},index int)
+	Insert(v interface{}, index int)
 	Erase(index int)
 }
 
@@ -18,37 +18,35 @@ type Vector struct {
 }
 
 func CreateVector() Vector {
-	s :=  []interface{}{}
+	s := []interface{}{}
 	v := Vector{
-		s:s,
-
+		s: s,
 	}
 	return v
 }
 
-func (this *Vector) Push_back(v interface{})  {
+func (this *Vector) Push_back(v interface{}) {
 
-
-	this.s = append(this.s,v)
+	this.s = append(this.s, v)
 }
 
 func (this *Vector) Pop_back() {
-
 
 	this.s = this.s[:len(this.s)-1]
 
 }
 
-func (this *Vector) Front() interface{}  {
+// e.g. temp := v.Front
+func (this *Vector) Front() interface{} {
 	if len(this.s) <= 0 {
-		return nil;
+		return nil
 	}
 	return this.s[0]
 }
 
 func (this *Vector) Back() interface{} {
 	if len(this.s) <= 0 {
-		return nil;
+		return nil
 	}
 	return this.s[len(this.s)-1]
 }
@@ -61,15 +59,15 @@ func (this *Vector) Size() int {
 	return len(this.s)
 }
 
-func (this *Vector) Insert(value interface{},nIndex int)  {
-	temp := this.s[nIndex:len(this.s) - 1]
+func (this *Vector) Insert(value interface{}, nIndex int) {
+	temp := this.s[nIndex : len(this.s)-1]
 	this.s = this.s[:nIndex]
-	this.s = append(this.s,value)
+	this.s = append(this.s, value)
 	this.s = append(temp)
 }
 
-func (this *Vector) Erase(nIndex int)  {
-	this.s = append(this.s[:nIndex],this.s[nIndex+1:])
+func (this *Vector) Erase(nIndex int) {
+	this.s = append(this.s[:nIndex], this.s[nIndex+1:])
 }
 
 func main() {
