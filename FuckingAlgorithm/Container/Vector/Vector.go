@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package Vector
 
 type IVector interface {
 	Push_back(v interface{})
@@ -13,67 +11,52 @@ type IVector interface {
 	Erase(index int)
 }
 
+// vector
 type Vector struct {
-	s []interface{}
-}
-
-func CreateVector() Vector {
-	s := []interface{}{}
-	v := Vector{
-		s: s,
-	}
-	return v
+	S []interface{} `json:"s"`
 }
 
 func (this *Vector) Push_back(v interface{}) {
 
-	this.s = append(this.s, v)
+	this.S = append(this.S, v)
 }
 
 func (this *Vector) Pop_back() {
 
-	this.s = this.s[:len(this.s)-1]
+	this.S = this.S[:len(this.S)-1]
 
 }
 
 // e.g. temp := v.Front
 func (this *Vector) Front() interface{} {
-	if len(this.s) <= 0 {
+	if len(this.S) <= 0 {
 		return nil
 	}
-	return this.s[0]
+	return this.S[0]
 }
 
 func (this *Vector) Back() interface{} {
-	if len(this.s) <= 0 {
+	if len(this.S) <= 0 {
 		return nil
 	}
-	return this.s[len(this.s)-1]
+	return this.S[len(this.S)-1]
 }
 
 func (this *Vector) Empty() bool {
-	return len(this.s) <= 0
+	return len(this.S) <= 0
 }
 
 func (this *Vector) Size() int {
-	return len(this.s)
+	return len(this.S)
 }
 
 func (this *Vector) Insert(value interface{}, nIndex int) {
-	temp := this.s[nIndex : len(this.s)-1]
-	this.s = this.s[:nIndex]
-	this.s = append(this.s, value)
-	this.s = append(temp)
+	temp := this.S[nIndex : len(this.S)-1]
+	this.S = this.S[:nIndex]
+	this.S = append(this.S, value)
+	this.S = append(temp)
 }
 
 func (this *Vector) Erase(nIndex int) {
-	this.s = append(this.s[:nIndex], this.s[nIndex+1:])
-}
-
-func main() {
-	v := CreateVector()
-	v.Push_back(5)
-	v.Push_back(3)
-	v.Erase(0)
-	fmt.Println(v)
+	this.S = append(this.S[:nIndex], this.S[nIndex+1:])
 }
