@@ -12,24 +12,24 @@ import (
 
 type CountWriter struct {
 	Writer io.Writer
-	Count int64
+	Count  int64
 }
 
-func (cw *CountWriter) Write(p []byte) (int, error)  {
-	n,err := cw.Writer.Write(p)
+func (cw *CountWriter) Write(p []byte) (int, error) {
+	n, err := cw.Writer.Write(p)
 	if err != nil {
-		log.Printf("An error occured:%s",err.Error())
+		log.Printf("An error occured:%s", err.Error())
 		return 0, err
 	}
 	cw.Count += int64(n)
-	return n,nil
+	return n, nil
 }
 
-func CountingWriter(w io.Writer,strType string) (io.Writer, *int64) {
+func CountingWriter(w io.Writer, strType string) (io.Writer, *int64) {
 	cw := CountWriter{
 		Writer: w,
 	}
-	return &cw,&(cw.Count)
+	return &cw, &(cw.Count)
 }
 
 func testByteCount() {
@@ -49,7 +49,7 @@ func testByteCount() {
 	name := "Dolly"
 	// 这里Fprintf的第一个参数是指针接收者(是指针作为this重载io.Writer)
 	// 因此传参的时候要写取地址
-	fmt.Fprintf(&c,"hello,%s",name)
+	fmt.Fprintf(&c, "hello,%s", name)
 	fmt.Println(c)
 
 	// Line Counter
@@ -64,20 +64,25 @@ func testByteCount() {
 
 	// 习题7.2  没做出来 上面是别人的答案
 
-
 }
 
 func BuildTree() *Tree.Node {
 	root := Tree.Node{Val: 1}
-	root.Left = &Tree.Node{2,nil,nil}
-	root.Right = &Tree.Node{3,nil,nil}
-	root.Left.Right = &Tree.Node{4,nil,nil}
-	root.Right.Left = &Tree.Node{5,nil,nil}
+	root.Left = &Tree.Node{2, nil, nil}
+	root.Right = &Tree.Node{3, nil, nil}
+	root.Left.Right = &Tree.Node{4, nil, nil}
+	root.Right.Left = &Tree.Node{5, nil, nil}
 	return &root
 }
 
 func main() {
 	//testByteCount()
-	root := BuildTree()
-	fmt.Print(*root)
+	var rw io.ReadWriter
+
+	fmt.Println("WriteData")
+	rw.Write([]byte("hello"))
+	fmt.Println("Read Data")
+	var temp []byte
+	rw.Read(temp)
+	fmt.Println("result:", string(temp))
 }

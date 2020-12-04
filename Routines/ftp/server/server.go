@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"log"
 	"net"
-	"time"
+	"os"
 )
 
 func main() {
-	listener, err := net.Listen("tcp", "localhost:8888")
+	listener, err := net.Listen("tcp", "127.0.0.1:8888")
 	if err != nil {
 		log.Println(err.Error())
 	}
@@ -16,6 +17,7 @@ func main() {
 		conn, err := listener.Accept()
 		if err != nil {
 			log.Println(err.Error())
+			continue
 		}
 		fmt.Println("Connect Success:", conn.LocalAddr())
 		go handleConn(conn)
@@ -25,14 +27,10 @@ func main() {
 func handleConn(conn net.Conn) {
 	defer conn.Close()
 	for {
-		var temp []byte
-		if _, err := conn.Read(temp); err != nil {
-			return
+		_, err := io.Copy(os.Stdout, conn)
+		if err != nil {
+			return // e.g., client disconnect
 		}
-		if len(temp) <= 0 {
-			continue
-		}
-		fmt.Println(temp)
-		time.Sleep(time.Second)
+
 	}
 }

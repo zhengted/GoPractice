@@ -9,23 +9,24 @@ import (
 )
 
 func main() {
-	conn, err := net.Dial("tcp", "loaclhost:8888")
+	conn, err := net.Dial("tcp", "127.0.0.1:8888")
 	if err != nil {
 		log.Println(err.Error())
 	}
-
 	defer conn.Close()
 	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		if _, err := conn.Write(input.Bytes()); err != nil {
-			log.Println(err.Error())
+	go func() {
+		for input.Scan() {
+			_, err := io.WriteString(conn, string(input.Bytes()))
+			if err != nil {
+				log.Println(err.Error())
+			}
 		}
-	}
+	}()
 
-}
-
-func copyToReader(src io.Writer, dst io.Reader) {
-	if _, err := io.Copy(src, dst); err != nil {
-		log.Println(err.Error())
-	}
+	//go func() {
+	//	if _, err := io.Copy(os.Stdout, conn); err != nil {
+	//		log.Fatal(err)
+	//	}
+	//}()
 }
