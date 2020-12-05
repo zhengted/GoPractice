@@ -141,7 +141,26 @@ func TestSubStr(t *testing.T)  {
 				tt.str,tt.res,actual)
 		}
 	}
-	
+}
+// 最长不重复子串 长度
+func lengthOfLongestSubstring(s string) int {
+
+	for i := range lastOccured {
+		lastOccured[i] = -1
+	}
+	start := 0
+	maxLength := 0
+
+	for i,ch := range []rune(s) {
+		if lastI := lastOccured[ch];lastI != -1 && lastI >= start {
+			start = lastI + 1
+		}
+		if i - start + 1 > maxLength {
+			maxLength = i - start + 1
+		}
+		lastOccured[ch] = i
+	}
+	return maxLength
 }
 ```
 - 查看代码覆盖率
