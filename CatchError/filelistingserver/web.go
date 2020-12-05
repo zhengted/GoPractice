@@ -4,9 +4,9 @@ import (
 	"GoPractice/CatchError/filelistingserver/filelisting"
 	"log"
 	"net/http"
+	_ "net/http/pprof" // 下划线表示代码中没有用 但是后续可能会用 http://localhost:8888/debug/pprof
 	"os"
 )
-
 
 type appHandler func(writer http.ResponseWriter,
 	request *http.Request) error
@@ -20,7 +20,7 @@ func errWrapper(
 		// panic
 		defer func() {
 			if r := recover(); r != nil {
-				log.Printf("Panic:%v",r)
+				log.Printf("Panic:%v", r)
 				http.Error(writer,
 					http.StatusText(http.StatusInternalServerError),
 					http.StatusInternalServerError)
@@ -28,9 +28,9 @@ func errWrapper(
 		}()
 		err := handler(writer, request)
 		if err != nil {
-			log.Printf("Error handling request: %s",err.Error())
+			log.Printf("Error handling request: %s", err.Error())
 			// user error
-			if userErr, ok := err.(userError);ok {
+			if userErr, ok := err.(userError); ok {
 				http.Error(writer,
 					userErr.Message(),
 					http.StatusBadRequest)
@@ -39,16 +39,16 @@ func errWrapper(
 
 			// system error
 			code := http.StatusOK
-			switch  {
-			case os.IsNotExist(err) :
+			switch {
+			case os.IsNotExist(err):
 				code = http.StatusNotFound
-			case os.IsPermission(err) :
+			case os.IsPermission(err):
 				code = http.StatusForbidden
 			default:
 				code = http.StatusInternalServerError
 			}
 			http.Error(writer,
-				http.StatusText(code),code)
+				http.StatusText(code), code)
 		}
 	}
 }
@@ -62,7 +62,7 @@ func main() {
 	http.HandleFunc("/",
 		errWrapper(filelisting.HandleFileList))
 
-	err := http.ListenAndServe(":8888",nil)
+	err := http.ListenAndServe(":8888", nil)
 	if err != nil {
 		panic(err)
 	}
