@@ -10,7 +10,6 @@ const cityListRe = `<a href="(http://localhost:8080/mock/www.zhenai.com/zhenghun
 func ParseCityList(contents []byte) engine.ParseResult {
 	re := regexp.MustCompile(cityListRe)
 	matches := re.FindAllSubmatch(contents, -1)
-
 	result := engine.ParseResult{}
 
 	for _, m := range matches {

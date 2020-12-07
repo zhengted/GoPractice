@@ -1,4 +1,4 @@
-package Vector
+package main
 
 type IVector interface {
 	Push_back(v interface{})
