@@ -18,22 +18,22 @@ func (e SimpleEngine) Run(seeds ...Request) {
 		r := requests[0]
 		requests = requests[1:]
 
-		//log.Printf("Fetching %s",r.Url)
+		log.Printf("Run Fetching %s", r.Url)
 		parseResult, err := worker(r)
 		if err != nil {
-			panic(err)
+			continue
 		}
 		requests = append(requests,
 			parseResult.Requests...)
 		for _, item := range parseResult.Items {
-			log.Printf("Got Item %v", item)
+			log.Printf("Got Item %v\n", item)
 		}
 
 	}
 }
 
 func worker(r Request) (ParseResult, error) {
-	//log.Printf("Fetching %s",r.Url)
+	//log.Printf("worker Fetching %v",r)
 	body, err := fetcher.Fetch(r.Url)
 	if err != nil {
 		log.Printf("Fetcher: error fetching url %s %v",

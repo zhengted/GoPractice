@@ -80,6 +80,17 @@ func ParserProfile(
 	result := engine.ParseResult{
 		Items: []interface{}{profile},
 	}
+	matches := guessRe.FindAllSubmatch(contents, -1)
+	for _, m := range matches {
+		name := string(m[2])
+		result.Requests = append(result.Requests,
+			engine.Request{
+				Url: string(m[1]),
+				ParserFunc: func(c []byte) engine.ParseResult {
+					return ParserProfile(c, name)
+				},
+			})
+	}
 	return result
 }
 

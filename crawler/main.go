@@ -1,15 +1,24 @@
 package main
 
 import (
+	"GoPractice/crawler/Scheduler"
 	"GoPractice/crawler/engine"
 	"GoPractice/crawler/zhenai/parser"
 )
 
 func main() {
-	engine.SimpleEngine{}.Run(engine.Request{
+	e := engine.ConcurrentEngine{
+		Scheduler:   &Scheduler.SimpleScheduler{},
+		WorkerCount: 100,
+	}
+	e.Run(engine.Request{
 		Url:        "http://localhost:8080/mock/www.zhenai.com/zhenghun",
 		ParserFunc: parser.ParseCityList,
 	})
+	//engine.SimpleEngine{}.Run(engine.Request{
+	//		Url:        "http://localhost:8080/mock/www.zhenai.com/zhenghun",
+	//		ParserFunc: parser.ParseCityList,
+	//	})
 }
 
 // 城市列表解析器Seed

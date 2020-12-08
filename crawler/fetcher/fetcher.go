@@ -10,10 +10,14 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"time"
 )
 
+var rateLimiter = time.Tick(10 * time.Millisecond)
+
 func Fetch(url string) ([]byte, error) {
-	resp, err := http.Get(url)
+	//<-rateLimiter
+	resp, err := http.Get(url) // 这里耗时太长
 	if err != nil {
 		return nil, err
 	}
