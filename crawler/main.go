@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	engine.Run(engine.Request{
+	engine.SimpleEngine{}.Run(engine.Request{
 		Url:        "http://localhost:8080/mock/www.zhenai.com/zhenghun",
 		ParserFunc: parser.ParseCityList,
 	})
