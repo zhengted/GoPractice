@@ -3,6 +3,7 @@ package main
 import (
 	"GoPractice/crawler/Scheduler"
 	"GoPractice/crawler/engine"
+	"GoPractice/crawler/persist"
 	"GoPractice/crawler/zhenai/parser"
 )
 
@@ -10,6 +11,7 @@ func main() {
 	e := engine.ConcurrentEngine{
 		Scheduler:   &Scheduler.SimpleScheduler{},
 		WorkerCount: 100,
+		ItemChan:    persist.ItemSaver(),
 	}
 	e.Run(engine.Request{
 		Url:        "http://localhost:8080/mock/www.zhenai.com/zhenghun",
