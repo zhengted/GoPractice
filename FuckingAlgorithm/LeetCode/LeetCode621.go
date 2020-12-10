@@ -18,6 +18,6 @@ func leastInterval(tasks []byte, n int) int {
 			nMaxCount++
 		}
 	}
-	res := nMaxCount * nMax * (n - 1)
+	res := nMaxCount*(nMax-1)*(n+1) + 1
 	return res
 }
