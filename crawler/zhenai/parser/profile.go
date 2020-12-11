@@ -37,7 +37,7 @@ var idUrlRe = regexp.MustCompile(
 	`.*album\.zhenai\.com/u/([\d]+)`)
 
 func ParserProfile(
-	contents []byte, name string) engine.ParseResult {
+	contents []byte, name string, url string) engine.ParseResult {
 	profile := model.Profile{}
 	profile.Name = name
 	age, err := strconv.Atoi(
@@ -78,7 +78,14 @@ func ParserProfile(
 		contents, xinzuoRe)
 
 	result := engine.ParseResult{
-		Items: []interface{}{profile},
+		Items: []engine.Item{
+			{
+				url,
+				"zhenai",
+				extractString([]byte(url), idUrlRe),
+				profile,
+			},
+		},
 	}
 	matches := guessRe.FindAllSubmatch(contents, -1)
 	for _, m := range matches {
@@ -87,7 +94,7 @@ func ParserProfile(
 			engine.Request{
 				Url: string(m[1]),
 				ParserFunc: func(c []byte) engine.ParseResult {
-					return ParserProfile(c, name)
+					return ParserProfile(c, name, string(m[1]))
 				},
 			})
 	}
