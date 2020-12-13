@@ -89,13 +89,10 @@ func ParserProfile(
 	}
 	matches := guessRe.FindAllSubmatch(contents, -1)
 	for _, m := range matches {
-		name := string(m[2])
 		result.Requests = append(result.Requests,
 			engine.Request{
-				Url: string(m[1]),
-				ParserFunc: func(c []byte) engine.ParseResult {
-					return ParserProfile(c, name, string(m[1]))
-				},
+				Url:        string(m[1]),
+				ParserFunc: ProfileParser(string(m[2])), // 函数调用本身就是拷贝 不需要重新拷贝一份注意！！！
 			})
 	}
 	return result
@@ -107,5 +104,11 @@ func extractString(contents []byte, re *regexp.Regexp) string {
 		return string(match[1])
 	} else {
 		return ""
+	}
+}
+
+func ProfileParser(name string) engine.ParserFunc {
+	return func(c []byte, url string) engine.ParseResult {
+		return ParserProfile(c, name, url)
 	}
 }

@@ -3,12 +3,14 @@ package main
 import (
 	"GoPractice/crawler/Scheduler"
 	"GoPractice/crawler/engine"
-	"GoPractice/crawler/persist"
 	"GoPractice/crawler/zhenai/parser"
+	"GoPractice/crawler_distributed/config"
+	"GoPractice/crawler_distributed/persist/client"
+	"fmt"
 )
 
 func main() {
-	itemChan, err := persist.ItemSaver("dating_profile")
+	itemChan, err := client.ItemSaver(fmt.Sprintf(":%d", config.ItemSaverPort))
 	if err != nil {
 		panic(err)
 	}

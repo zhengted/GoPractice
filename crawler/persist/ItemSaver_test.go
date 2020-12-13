@@ -31,20 +31,22 @@ func TestSave(t *testing.T) {
 		},
 	}
 	// save expected
-	err := save(expected)
+	//TODO: Try to start up elastic search
+	client, err := elastic.NewClient(
+		elastic.SetSniff(false))
 	if err != nil {
 		panic(err)
 	}
-	// TODO: Try to start up elastic search
-	client, err := elastic.NewClient(
-		elastic.SetSniff(false))
+	const index = "dating_test"
+	err = Save(client, expected, index)
+
 	if err != nil {
 		panic(err)
 	}
 
 	// get item
 	resp, err := client.Get().
-		Index("dating_profile").
+		Index(index).
 		Type(expected.Type).
 		Id(expected.Id).Do(context.Background())
 	if err != nil {
