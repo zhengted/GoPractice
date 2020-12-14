@@ -36,7 +36,7 @@ var guessRe = regexp.MustCompile(
 var idUrlRe = regexp.MustCompile(
 	`.*album\.zhenai\.com/u/([\d]+)`)
 
-func ParserProfile(
+func parserProfile(
 	contents []byte, name string, url string) engine.ParseResult {
 	profile := model.Profile{}
 	profile.Name = name
@@ -91,8 +91,8 @@ func ParserProfile(
 	for _, m := range matches {
 		result.Requests = append(result.Requests,
 			engine.Request{
-				Url:        string(m[1]),
-				ParserFunc: ProfileParser(string(m[2])), // 函数调用本身就是拷贝 不需要重新拷贝一份注意！！！
+				Url:    string(m[1]),
+				Parser: NewProfileParser(string(m[2])), // 函数调用本身就是拷贝 不需要重新拷贝一份注意！！！
 			})
 	}
 	return result
@@ -107,8 +107,26 @@ func extractString(contents []byte, re *regexp.Regexp) string {
 	}
 }
 
-func ProfileParser(name string) engine.ParserFunc {
-	return func(c []byte, url string) engine.ParseResult {
-		return ParserProfile(c, name, url)
+//func ProfileParser(name string) engine.ParserFunc {
+//	return func(c []byte, url string) engine.ParseResult {
+//		return ParserProfile(c, name, url)
+//	}
+//}
+
+type ProfileParser struct {
+	userName string
+}
+
+func (p *ProfileParser) Parse(contents []byte, url string) engine.ParseResult {
+	return parserProfile(contents, p.userName, url)
+}
+
+func (p *ProfileParser) Serialize() (name string, args interface{}) {
+	return "ProfileParser", p.userName
+}
+
+func NewProfileParser(name string) *ProfileParser {
+	return &ProfileParser{
+		name,
 	}
 }

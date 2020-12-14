@@ -1,6 +1,7 @@
 package fetcher
 
 import (
+	"GoPractice/crawler_distributed/config"
 	"bufio"
 	"fmt"
 	"golang.org/x/net/html/charset"
@@ -13,10 +14,10 @@ import (
 	"time"
 )
 
-var rateLimiter = time.Tick(10 * time.Millisecond)
+var rateLimiter = time.Tick(time.Second / config.Qps)
 
 func Fetch(url string) ([]byte, error) {
-	//<-rateLimiter
+	<-rateLimiter
 	resp, err := http.Get(url) // 这里耗时太长
 	if err != nil {
 		return nil, err

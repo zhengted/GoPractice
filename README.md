@@ -4,7 +4,7 @@
     - ~~（现在的珍爱网不好爬，所以爬取的都是仿制的）~~不过没有关西，看架构才是关键
 - crawler_distributed 爬虫项目的分布式优化
     - 优化ItemSaver 使用jsonRPC让SaveItem在一个单独的服务器上运行
-    - 优化Worker 将分布式应用在workers上，使workers也在一个单独的服务器上运行 // TODO
+    - 优化Worker 将分布式应用在workers上，使workers也在一个单独的服务器上运行
     - 优化去重 用关系型数据库redis 存储对应的数据 利用redis的查询功能去重 // TODO
 - DesignPattern 设计模式
     - 目前只写了个大纲 创建型中有《Go高级编程》提供的单例模式

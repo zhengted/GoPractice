@@ -14,7 +14,7 @@ func TestParserProfile(t *testing.T) {
 		panic(err)
 	}
 
-	result := ParserProfile(contents, "厌与深情记得笑i", "")
+	result := parserProfile(contents, "厌与深情记得笑i", "")
 
 	if len(result.Items) != 1 {
 		t.Errorf("Items should contain 1 "+

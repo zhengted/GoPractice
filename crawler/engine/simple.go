@@ -18,7 +18,7 @@ func (e SimpleEngine) Run(seeds ...Request) {
 		requests = requests[1:]
 
 		log.Printf("Run Fetching %s", r.Url)
-		parseResult, err := worker(r)
+		parseResult, err := Worker(r)
 		if err != nil {
 			continue
 		}
