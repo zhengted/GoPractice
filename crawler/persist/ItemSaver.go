@@ -1,13 +1,19 @@
 package persist
 
 import (
+	"GoPractice/crawler/engine"
 	"context"
+	"errors"
 	"github.com/olivere/elastic/v7"
 	"log"
 )
 
-func ItemSaver() chan interface{} {
-	out := make(chan interface{})
+func ItemSaver(index string) (chan engine.Item, error) {
+	client, err := elastic.NewClient(elastic.SetSniff(false))
+	if err != nil {
+		return nil, err
+	}
+	out := make(chan engine.Item)
 	go func() {
 		itemCount := 0
 		for {
@@ -16,30 +22,34 @@ func ItemSaver() chan interface{} {
 				"#%d:%v", itemCount, item)
 			itemCount++
 
-			id, err := save(item)
+			err := Save(client, item, index)
 			if err != nil {
-				log.Printf("Item Saver: error saving item %v %s\n", id, err.Error())
+				log.Printf("Item Saver: error saving item %s\n", err.Error())
 				continue
 			}
 
 		}
 	}()
-	return out
+	return out, nil
 }
 
-func save(item interface{}) (id string, err error) {
-	client, err := elastic.NewClient(
-		// Must turn off sniff in docker
-		elastic.SetSniff(false))
-	if err != nil {
-		return "", err
+func Save(client *elastic.Client, item engine.Item, index string) error {
+
+	if item.Type == "" {
+		return errors.New("must supply type")
 	}
-	resp, err := client.Index().Index("dating_profile").
-		Type("zhenai").
-		BodyJson(item).
-		Do(context.Background())
-	if err != nil {
-		return "", nil
+	IndexService := client.Index().Index(index).
+		Type(item.Type).
+		Id(item.Id).
+		BodyJson(item)
+	if item.Id != "" {
+		IndexService.Id(item.Id)
 	}
-	return resp.Id, nil
+
+	_, err := IndexService.Do(context.Background())
+
+	if err != nil {
+		return err
+	}
+	return nil
 }

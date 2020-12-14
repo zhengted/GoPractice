@@ -1,29 +1,27 @@
-package parser
+package main
 
 import (
 	"GoPractice/crawler/engine"
 	"GoPractice/crawler/model"
-	"io/ioutil"
+	"GoPractice/crawler_distributed/rpcsupport"
 	"testing"
+	"time"
 )
 
-func TestParserProfile(t *testing.T) {
-	contents, err := ioutil.ReadFile(
-		"profile_test_data.html")
+const gHost = ":1234"
+const gIndex = "test1"
+
+func TestItemServer(t *testing.T) {
+	// Start ItemSaverServer
+	go serveRpc(gHost, gIndex)
+	time.Sleep(time.Second)
+	// Start ItemSaverClient
+	client, err := rpcsupport.NewClient(gHost)
 	if err != nil {
 		panic(err)
 	}
 
-	result := ParserProfile(contents, "厌与深情记得笑i", "")
-
-	if len(result.Items) != 1 {
-		t.Errorf("Items should contain 1 "+
-			"element; but was %v", result.Items)
-	}
-
-	profile := result.Items[0]
-
-	expected := engine.Item{
+	item := engine.Item{
 		"http://localhost:8080/mock/album.zhenai.com/u/7143522202848495805",
 		"zhenai",
 		"7143522202848495805",
@@ -43,7 +41,10 @@ func TestParserProfile(t *testing.T) {
 			Car:        "有豪车",
 		},
 	}
-	if profile != expected {
-		t.Errorf("expected:%v but got: %v", expected, profile)
+	// Call save
+	result := ""
+	err = client.Call("ItemSaverService.Save", item, &result)
+	if err != nil || result != "ok" {
+		t.Errorf("result: %s; err: %s", result, err)
 	}
 }
