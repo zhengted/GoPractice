@@ -1,7 +1,7 @@
 package main
 
 import (
-	"GoPractice/FunctionalProgram/tree"
+	"GoPractice/lang/FunctionalProgram/tree"
 	"fmt"
 )
 
@@ -10,15 +10,15 @@ import (
 
 func main() {
 	var root tree.TreeNode
-	root = tree.TreeNode{Val:3}
+	root = tree.TreeNode{Val: 3}
 	root.Left = &tree.TreeNode{}
-	root.Right = &tree.TreeNode{5,nil,nil}
-	root.Left.Right = &tree.TreeNode{2,nil,nil}
-	root.Right.Left = &tree.TreeNode{4,nil,nil}
+	root.Right = &tree.TreeNode{5, nil, nil}
+	root.Left.Right = &tree.TreeNode{2, nil, nil}
+	root.Right.Left = &tree.TreeNode{4, nil, nil}
 	root.Traverse()
 	count := 0
 	root.TraverseFunc(func(node *tree.TreeNode) {
 		count++
 	})
-	fmt.Printf("node count:%d",count)
+	fmt.Printf("node count:%d", count)
 }

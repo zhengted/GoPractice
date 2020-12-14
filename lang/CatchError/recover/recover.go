@@ -12,7 +12,6 @@ func revoverTest() {
 		} else {
 			panic(err)
 		}
-
 	}()
 	b := 0
 	a := 5 / b
