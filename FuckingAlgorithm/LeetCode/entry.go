@@ -1,16 +1,12 @@
 package main
 
+import "fmt"
+
 func main() {
-	head1 := &ListNode{
-		1,
-		nil,
-	}
-	head2 := &ListNode{
-		9,
-		&ListNode{
-			9,
-			nil,
-		},
-	}
-	PrintNum(addTwoNumbers(head1, head2))
+	groupAnagramsDemo()
+}
+
+func groupAnagramsDemo() {
+	param := []string{"eat", "tea", "tan", "ate", "nat", "bat"}
+	fmt.Println(groupAnagramsEx(param))
 }
