@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	groupAnagramsDemo()
+	fmt.Println(monotoneIncreasingDigits(897477249))
 }
 
 func groupAnagramsDemo() {
