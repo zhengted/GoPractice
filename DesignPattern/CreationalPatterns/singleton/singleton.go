@@ -1,4 +1,4 @@
-package CreationalPatterns
+package singleton
 
 import (
 	"sync"

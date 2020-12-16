@@ -3,7 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(monotoneIncreasingDigits(897477249))
+	var x int
+	inc := func() int {
+		x++
+		return x
+	}
+	fmt.Println(func() (a, b int) {
+		return inc(), inc()
+	}())
 }
 
 func groupAnagramsDemo() {
