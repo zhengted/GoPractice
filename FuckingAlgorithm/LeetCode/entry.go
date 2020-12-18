@@ -3,14 +3,10 @@ package main
 import "fmt"
 
 func main() {
-	var x int
-	inc := func() int {
-		x++
-		return x
-	}
-	fmt.Println(func() (a, b int) {
-		return inc(), inc()
-	}())
+	price := []int{1, 4, 6, 2, 8, 3, 10, 14}
+	fee := 3
+	fmt.Println(maxProfit(price, fee))
+
 }
 
 func groupAnagramsDemo() {
