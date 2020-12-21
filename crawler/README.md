@@ -265,10 +265,17 @@
 - 分析
 
   - Seed 起始页面
+  
   - Engine 负责调度 每次从任务队列中获取一个任务
+  
   - Fetcher 引擎将取得的任务交给Fetcher ，Fetcher返回一个字节流
+  
   - Parser 引擎将Fetcher返回的字节流送给Parser从而获取下一个request并送入队列
-
-## 多任务版爬虫
+  
+    
 
 ## 并发版爬虫
+
+
+
+## 分布式爬虫
