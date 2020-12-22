@@ -12,7 +12,11 @@
 
 ![image-20201216195546138](https://i.loli.net/2020/12/16/LetE4G7NFgwR5kP.png)
 
+#### 总体算法
+
 - 总体算法类似**广度优先**算法走迷宫机制
+
+#### 解析部分
 
 - 解析部分为三个部分（城市列表、城市、用户），三种架构通用
 
@@ -260,22 +264,225 @@
 
 - 上图
 
-  ![image-20201216204908280](https://i.loli.net/2020/12/16/a3wQMSC1UDn2lIo.png)
+  <img src="C:\Users\szgla\AppData\Roaming\Typora\typora-user-images\image-20201222113228391.png" alt="image-20201222113228391" style="zoom:50%;" />
 
-- 分析
 
-  - Seed 起始页面
-  
-  - Engine 负责调度 每次从任务队列中获取一个任务
-  
-  - Fetcher 引擎将取得的任务交给Fetcher ，Fetcher返回一个字节流
-  
-  - Parser 引擎将Fetcher返回的字节流送给Parser从而获取下一个request并送入队列
-  
-    
+#### 分析
+
+- Seed 起始页面
+
+- Engine 负责调度 每次从任务队列中获取一个任务
+
+- Fetcher 引擎将取得的任务交给Fetcher ，Fetcher返回一个字节流
+
+- Parser 引擎将Fetcher返回的字节流送给Parser从而获取下一个request并送入队列
 
 ## 并发版爬虫
 
+### 核心架构
 
+![image-20201222113840023](C:\Users\szgla\AppData\Roaming\Typora\typora-user-images\image-20201222113840023.png)
+
+#### 并发并在哪里
+
+- Worker是并发创建的，不会引起阻塞
+
+  ```go
+  func (e *ConcurrentEngine) Run(seeds ...Request) {
+  	// simple调度的写法
+  	in := make(chan Request)
+  	out := make(chan ParseResult)
+  	e.Scheduler.ConfigureMasterWorkerChan(in)
+  	fmt.Println("Init scheduler")
+  	
+  	for i := 0; i < e.WorkerCount; i++ {
+  		createWorker(in,out)
+  	}
+  	
+  	for _,r := range seeds {
+  		e.Scheduler.Submit(r)
+  	}
+  }
+  //Simple调度的写法
+  func createWorker(in chan Request, out chan ParseResult) {
+  	go func() {
+  		for  {
+  			// tell scheduler i'm ready
+  			request := <- in	// *1
+  			result, err := worker(request)
+  			if err != nil {
+  				continue
+  			}
+  			out <- result		// *1和这里循环等待了
+  		}
+  	}()
+  }
+  func (s SimpleScheduler) Submit(request engine.Request) {
+  	// send request down to worker chan
+  	go func() {
+  		s.workerChan <- request		// 原写法是将request塞入in中 这里是优化过后的写法 意会即可
+  	}()
+  }
+  ```
+
+  - 但是该调度仍然存在循环等待的问题，如果in取不到数据那么就无法往out里输入数据。out的操作依赖了in
+
+#### 能不能让并发更多
+
+- 调度器部分利用队列来维护，而不是来一个请求就往管道里输入
+
+  - 调度器部分的Run代码
+
+  ```go
+  func (q *QueuedScheduler) Run() {
+  	q.workerChan = make(chan chan engine.Request)
+  	q.requestChan = make(chan engine.Request)
+  	go func() {
+  		var requestQ []engine.Request
+  		var workerQ []chan engine.Request
+  		for {
+  			var activeRequest engine.Request
+  			var activeWorker chan engine.Request
+  			if len(requestQ) > 0 && len(workerQ) > 0 {
+  				// 这里不执行发 会导致下面的r和w收不到东西
+  				activeWorker = workerQ[0]
+  				activeRequest = requestQ[0]
+  			}
+  			select {
+  			// 这两个先后顺序不固定 用select控制
+  			case r := <-q.requestChan:
+  				// send r to a unknown worker
+  				requestQ = append(requestQ, r)
+  			case w := <-q.workerChan:
+  				// send unknown next request to w
+  				workerQ = append(workerQ, w)
+  			case activeWorker <- activeRequest:
+  				workerQ = workerQ[1:]
+  				requestQ = requestQ[1:]
+  			}
+  
+  		}
+  	}()
+  }
+  func (q *QueuedScheduler) Submit(request engine.Request) {
+  	q.requestChan <- request
+  }
+  // 告知Q 有一个channel（Worker）已经准备好工作了
+  func (q *QueuedScheduler) WorkReady(w chan engine.Request) {
+  	q.workerChan <- w
+  }
+  ```
+  - 引擎类的Run
+
+  ```go
+  func (e *ConcurrentEngine) Run(seeds ...Request) {
+  	// simple调度的写法
+  	//in := make(chan Request)
+  	//out := make(chan ParseResult)
+  	//e.Scheduler.ConfigureMasterWorkerChan(in)
+  	//fmt.Println("Init scheduler")
+  	//
+  	//for i := 0; i < e.WorkerCount; i++ {
+  	//	createWorker(in,out)
+  	//}
+  	//
+  	//for _,r := range seeds {
+  	//	e.Scheduler.Submit(r)
+  	//}
+  
+  	// 队列调度的写法
+  	out := make(chan ParseResult)
+  	e.Scheduler.Run()
+  	for i := 0; i < e.WorkerCount; i++ {
+  		e.createWorker(e.Scheduler.WorkerChan(), out, e.Scheduler)
+  	}
+  
+  	for _, r := range seeds {
+  		if IsDuplicate(r.Url) {
+  			log.Printf("Duplicate request:"+"%s", r.Url)
+  			continue
+  		}
+  		e.Scheduler.Submit(r)
+  	}
+  
+  	for {
+  		result := <-out
+  		for _, item := range result.Items {
+  			go func() { e.ItemChan <- item }()		// 这里存到itemsaver中
+  		}
+  
+  		// URL dedup
+  		for _, request := range result.Requests {
+  			if IsDuplicate(request.Url) {
+  				continue
+  			}
+  			e.Scheduler.Submit(request) 
+              // 这里simple调度会有个问题  如果result里的request数量过大会循环等待 解决办法是开一个routine
+              // 但是concurrent调度不会
+  		}
+  	}
+  }
+  ```
+
+### 引入并发的ItemSaver
+
+- 原有的存储是将数据在控制台打印出来。后续的持久化方式采用存储到ElasticSearch
+
+- 期间学习了docker的使用
+
+- ItemSaver代码如下，其中的channel是在进程开启的时候创建并成为了调度器的成员ItemChan
+
+  ```go
+  func ItemSaver(index string) (chan engine.Item, error) {
+  	client, err := elastic.NewClient(elastic.SetSniff(false))
+  	if err != nil {
+  		return nil, err
+  	}
+  	out := make(chan engine.Item)
+  	go func() {
+  		itemCount := 0
+  		for {
+  			item := <-out
+  			log.Printf("ItemSaver got item "+
+  				"#%d:%v", itemCount, item)
+  			itemCount++
+  
+  			err := Save(client, item, index)
+  			if err != nil {
+  				log.Printf("Item Saver: error saving item %s\n", err.Error())
+  				continue
+  			}
+  
+  		}
+  	}()
+  	return out, nil
+  }
+  
+  func Save(client *elastic.Client, item engine.Item, index string) error {
+  
+  	if item.Type == "" {
+  		return errors.New("must supply type")
+  	}
+  	IndexService := client.Index().Index(index).
+  		Type(item.Type).
+  		Id(item.Id).
+  		BodyJson(item)
+  	if item.Id != "" {
+  		IndexService.Id(item.Id)
+  	}
+  
+  	_, err := IndexService.Do(context.Background())
+  
+  	if err != nil {
+  		return err
+  	}
+  	return nil
+  }
+  
+  ```
+
+  
 
 ## 分布式爬虫
+
+### 继续分离
