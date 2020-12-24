@@ -5,8 +5,7 @@ import (
 )
 
 func main() {
-	root := BuildTree103()
-	fmt.Println(zigzagLevelOrder(root))
+	fmt.Println(candy([]int{1, 2, 87, 87, 87, 2, 1}))
 }
 func BuildTree103() *TreeNode {
 	root := TreeNode{Val: 3}
