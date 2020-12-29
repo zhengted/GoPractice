@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	fmt.Println(candy([]int{1, 2, 87, 87, 87, 2, 1}))
+	fmt.Println(minPatches([]int{1, 5, 10}, 20))
 }
 func BuildTree103() *TreeNode {
 	root := TreeNode{Val: 3}

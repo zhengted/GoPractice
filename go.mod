@@ -3,6 +3,7 @@ module GoPractice
 go 1.13
 
 require (
+	bou.ke/monkey v1.0.2
 	github.com/gin-gonic/gin v1.6.3
 	github.com/golang/protobuf v1.4.3
 	github.com/olivere/elastic/v7 v7.0.22
