@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	fmt.Println(minPatches([]int{1, 5, 10}, 20))
+	fmt.Println(lastStoneWeight([]int{2, 2}))
 }
 func BuildTree103() *TreeNode {
 	root := TreeNode{Val: 3}
