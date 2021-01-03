@@ -8,7 +8,7 @@ import (
 
 func testRedis() bool {
 	// e.g. REDIS_PORT = tcp://172.17.0.89:6379
-	conn, err := redis.DialTimeout("tcp", "127.0.0.1:6379", 0, 1*time.Second, 1*time.Second)
+	conn, err := redis.DialTimeout("tcp", "172.18.0.4:6379", 0, 1*time.Second, 1*time.Second)
 	if err != nil {
 		fmt.Println(err)
 		return false
