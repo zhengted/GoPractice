@@ -7,7 +7,7 @@ import (
 )
 
 func testRedis() bool {
-	conn, err := redis.DialTimeout("tcp", "172.18.0.4:6379", 0, 1*time.Second, 1*time.Second)
+	conn, err := redis.Dial("tcp", "172.18.0.4:6379")
 	if err != nil {
 		fmt.Println(err)
 		return false
