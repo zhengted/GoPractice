@@ -7,7 +7,6 @@ import (
 )
 
 func testRedis() bool {
-	// e.g. REDIS_PORT = tcp://172.17.0.89:6379
 	conn, err := redis.DialTimeout("tcp", "172.18.0.4:6379", 0, 1*time.Second, 1*time.Second)
 	if err != nil {
 		fmt.Println(err)
@@ -53,4 +52,26 @@ func BuildTree103() *TreeNode {
 func groupAnagramsDemo() {
 	param := []string{"eat", "tea", "tan", "ate", "nat", "bat"}
 	fmt.Println(groupAnagramsEx(param))
+}
+func partitionDemo() {
+	head := &ListNode{
+		1,
+		&ListNode{
+			4,
+			&ListNode{
+				3,
+				&ListNode{
+					2,
+					&ListNode{
+						5,
+						&ListNode{
+							2,
+							nil,
+						},
+					},
+				},
+			},
+		},
+	}
+	fmt.Println(partition(head, 3))
 }
